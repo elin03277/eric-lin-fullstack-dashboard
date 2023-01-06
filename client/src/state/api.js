@@ -18,7 +18,7 @@ export const api = createApi({
       providesTags: ["Customers"],
     }),
     getTransactions: build.query({
-      qurey: ({ page, pageSize, sort, search }) => ({
+      query: ({ page, pageSize, sort, search }) => ({
         url: "client/transactions",
         method: "GET",
         params: { page, pageSize, sort, search },

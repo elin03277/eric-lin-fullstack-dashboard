@@ -13,14 +13,14 @@ const Transactions = () => {
   const [pageSize, setPageSize] = useState(20);
   const [sort, setSort] = useState({});
   const [search, setSearch] = useState("");
-  const [searchInput, setSearchInput] = setState("");
+  const [searchInput, setSearchInput] = useState("");
   const { data, isLoading } = useGetTransactionsQuery({
     page,
     pageSize,
     sort: JSON.stringify(sort),
     search,
   });
-  // console.log("data", data);
+  console.log("data", data);
 
   const columns = [
     {
@@ -52,7 +52,6 @@ const Transactions = () => {
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
     },
   ];
-
   return (
     <Box m="1.5rem 2.5rem">
       <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
@@ -93,13 +92,13 @@ const Transactions = () => {
           pagination
           page={page}
           pageSize={pageSize}
-          paginationMode="Server"
+          paginationMode="server"
           sortingMode="server"
           onPageChange={(newPage) => setPage(newPage)}
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           onSortModelChange={(newSortModel) => setSort(...newSortModel)}
-          component={{ Toolbar: DataGridCustomToolbar }}
-          componentProps={{
+          components={{ Toolbar: DataGridCustomToolbar }}
+          componentsProps={{
             toolbar: { searchInput, setSearchInput, setSearch },
           }}
         />

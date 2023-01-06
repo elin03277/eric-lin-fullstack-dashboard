@@ -39,7 +39,7 @@ const Product = ({
         <Typography
           sx={{ fontSize: 14 }}
           color={theme.palette.secondary[700]}
-          gutterButtom
+          gutterbuttom="true"
         >
           {category}
         </Typography>
